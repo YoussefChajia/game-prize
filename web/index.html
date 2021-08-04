@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -22,14 +23,49 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="axie_scholarship">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="google-signin-client_id"
+    content="903283131768-kjfivqahsuje2g7c3ffg0a7norf86bqp.apps.googleusercontent.com">
 
   <title>axie_scholarship</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
+  <script>
+
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+
+      apiKey: "AIzaSyBYI_AQWBWLr6bIn04bG13492F-pIB8xBo",
+
+      authDomain: "axie-scholarship-d3293.firebaseapp.com",
+
+      projectId: "axie-scholarship-d3293",
+
+      storageBucket: "axie-scholarship-d3293.appspot.com",
+
+      messagingSenderId: "903283131768",
+
+      appId: "1:903283131768:web:3175e3c8e8b8cf0093748d"
+
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+
+  </script>
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
@@ -94,5 +130,7 @@
       loadMainDartJs();
     }
   </script>
+
 </body>
+
 </html>
