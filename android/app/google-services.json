@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "903283131768",
+    "project_id": "axie-scholarship-d3293",
+    "storage_bucket": "axie-scholarship-d3293.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903283131768:android:995829f02d72e35193748d",
+        "android_client_info": {
+          "package_name": "com.example.axie_scholarship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903283131768-kjfivqahsuje2g7c3ffg0a7norf86bqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR7KE9pY1vMEnAtYOfu7tcyvxTVR6DLCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903283131768-kjfivqahsuje2g7c3ffg0a7norf86bqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
