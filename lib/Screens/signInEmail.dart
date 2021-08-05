@@ -1,7 +1,6 @@
 import 'package:axie_scholarship/Services/Auth.dart';
 import 'package:axie_scholarship/Widgets/SignInButton.dart';
 import 'package:axie_scholarship/Widgets/SignTextField.dart';
-import 'package:axie_scholarship/Widgets/circleButton.dart';
 import 'package:axie_scholarship/enums/pageType.dart';
 import 'package:axie_scholarship/enums/textFieldType.dart';
 import 'package:axie_scholarship/models/pageSwitcher.dart';
@@ -23,6 +22,7 @@ class _SignInEmailPageState extends State<SignInEmailPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController(),
       passwordController = TextEditingController();
+  bool errorSignIn = false;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -47,33 +47,6 @@ class _SignInEmailPageState extends State<SignInEmailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleButton(
-                    icon: Icons.home,
-                    iconColor: Colors.white,
-                    onPressed: () async {
-                      context
-                          .read<PageSwitcher>()
-                          .changePage(newPage: PageType.LoginPage);
-                    },
-                    fillColor: Color(0xff536DFE),
-                  ),
-                  SizedBox(width: context.read<ScreenSize>().width * .02),
-                  CircleButton(
-                    iconColor: Colors.white,
-                    onPressed: () async {
-                      await context.read<AuthService>().signInWithGoogle();
-                    },
-                    fillColor: Color(0xff536DFE),
-                    icon: FontAwesomeIcons.google,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: context.read<ScreenSize>().height * .025,
-              ),
               Form(
                 key: _formKey,
                 child: Column(
@@ -91,19 +64,70 @@ class _SignInEmailPageState extends State<SignInEmailPage> {
                         fieldType: TextFieldType.Password,
                         textController: passwordController),
                     SizedBox(
+                      height: context.read<ScreenSize>().width * .01,
+                    ),
+                    Center(
+                      child: Text(
+                        "Email or Password Incorrect",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: context.read<ScreenSize>().width * .03,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
                       height: context.read<ScreenSize>().height * .05,
                     ),
-                    SignInButton(
-                      buttonText: "Sign In",
-                      onPressed: () {
-                        print("the sign In button is clicked");
-                        if (_formKey.currentState!.validate()) {
-                          print("The form is valide");
-                        }
-                      },
-                      textColor: Colors.white,
-                      backgroundColor: Color(0xFF536DFE),
-                      width: context.read<ScreenSize>().width * .488,
+                    Container(
+                      width: context.read<ScreenSize>().width * .695,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SignInButton(
+                            buttonText: "Sign In",
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                if (await context
+                                    .read<AuthService>()
+                                    .signInWithEmailAndPassword(
+                                        email: emailController.text,
+                                        password: passwordController.text)) {
+                                } else {
+                                  setState(() {
+                                    this.errorSignIn = true;
+                                  });
+                                }
+                              }
+                            },
+                            textColor: Colors.white,
+                            backgroundColor: Color(0xFF536DFE),
+                            width: context.read<ScreenSize>().width * .45,
+                          ),
+                          Container(
+                            width: context.read<ScreenSize>().width * .16,
+                            child: MaterialButton(
+                              height: (context.read<ScreenSize>().height) * .05,
+                              minWidth:
+                                  (context.read<ScreenSize>().width) * .15,
+                              color: Color(0xFF536DFE),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: Icon(
+                                FontAwesomeIcons.google,
+                                color: Colors.white,
+                                size: context.read<ScreenSize>().width * .04,
+                              ),
+                              onPressed: () async {
+                                await context
+                                    .read<AuthService>()
+                                    .signInWithGoogle();
+                              },
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: context.read<ScreenSize>().height * .05,

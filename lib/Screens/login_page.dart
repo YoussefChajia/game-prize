@@ -81,7 +81,6 @@ class _SignInPageState extends State<SignInPage>
               SignInButton(
                 buttonText: "Sign Up with Google",
                 onPressed: () async {
-                  print("the sign in button is clicked");
                   await context.read<AuthService>().signInWithGoogle();
                 },
                 textColor: Colors.white,
@@ -92,7 +91,9 @@ class _SignInPageState extends State<SignInPage>
               ),
               SignInButton(
                 buttonText: "Continue as a guest",
-                onPressed: () {},
+                onPressed: () async {
+                  await context.read<AuthService>().signInAnonymously();
+                },
                 backgroundColor: Color(0xff514B4A),
                 textColor: Colors.white,
               ),

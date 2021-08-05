@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Provider<PageSwitcher>(create: (_) => _pageSwitcher),
         StreamProvider<PageType>(
           create: (context) => context.read<PageSwitcher>().pageType,
-          initialData: PageType.LoginPage,
+          initialData: PageType.SignInEmailPage,
         ),
         StreamProvider<User?>(
           create: (context) => context.read<AuthService>().authStateChanges,

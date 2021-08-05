@@ -64,6 +64,16 @@ class AuthService {
     }
   }
 
+  Future<bool> signInAnonymously() async {
+    try {
+      await _firebaseAuth.signInAnonymously();
+      return true;
+    } catch (e) {
+      print(e.toString());
+      return false;
+    }
+  }
+
   Future<void> signOut() async {
     await _googleSignIn.disconnect();
     await _firebaseAuth.signOut();
