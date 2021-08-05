@@ -28,63 +28,57 @@ class _GameCardState extends State<GameCard> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          color: Colors.black,
-                        ),
+                    child: Container(
+                      width: 85.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.black,
                       ),
                     ),
                   ),
                   Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              game.title,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                    flex: 3,
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            game.title,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 20.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                game.price.toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Required : ${game.price}',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                              Container(
+                                height: 30.0,
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).buttonColor,
+                                  borderRadius: BorderRadius.circular(15.0),
                                 ),
-                                Container(
-                                  height: 30.0,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).buttonColor,
-                                    borderRadius: BorderRadius.circular(15.0),
+                                child: TextButton(
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                                   ),
-                                  child: TextButton(
-                                    style: ButtonStyle(
-                                      foregroundColor:
-                                          MaterialStateProperty.all<Color>(Colors.white),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text('Play'),
-                                  ),
+                                  onPressed: () {},
+                                  child: Text('Play'),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
