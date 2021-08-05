@@ -1,4 +1,5 @@
 import 'package:axie_scholarship/Services/Auth.dart';
+import 'package:axie_scholarship/Widgets/circleButton.dart';
 import 'package:axie_scholarship/models/screenSize.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,24 +27,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     print("You're now signed in");
     return Center(
-        child: RawMaterialButton(
-      constraints: BoxConstraints(
-        minHeight: context.read<ScreenSize>().width * .116,
-        minWidth: context.read<ScreenSize>().width * .116,
-      ),
+        child: CircleButton(
+      assetPath: "assets/Icons/signOut.svg",
+      fillColor: Color(0xff212121),
+      iconColor: Colors.white,
       onPressed: () async {
         await context.read<AuthService>().signOut();
       },
-      elevation: 0.0,
-      fillColor: Color(0xff212121),
-      child: SvgPicture.asset(
-        "assets/Icons/signOut.svg",
-        color: Colors.white,
-        width: context.read<ScreenSize>().width * .045,
-        height: context.read<ScreenSize>().width * .045,
-      ),
-      padding: EdgeInsets.all(15.0),
-      shape: CircleBorder(),
     ));
   }
 }

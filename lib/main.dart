@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:axie_scholarship/Screens/decideWidget.dart';
 import 'package:axie_scholarship/Services/Auth.dart';
+import 'package:axie_scholarship/enums/pageType.dart';
+import 'package:axie_scholarship/models/pageSwitcher.dart';
 import 'package:axie_scholarship/models/screenSize.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -39,11 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     AuthService _authService = AuthService();
-
+    PageSwitcher _pageSwitcher = PageSwitcher();
     return MultiProvider(
       providers: [
         Provider<AuthService>(
           create: (_) => _authService,
+        ),
+        Provider<PageSwitcher>(create: (_) => _pageSwitcher),
+        StreamProvider<PageType>(
+          create: (context) => context.read<PageSwitcher>().pageType,
+          initialData: PageType.LoginPage,
         ),
         StreamProvider<User?>(
           create: (context) => context.read<AuthService>().authStateChanges,

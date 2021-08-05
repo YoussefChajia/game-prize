@@ -1,10 +1,10 @@
 import 'package:axie_scholarship/Services/Auth.dart';
 import 'package:axie_scholarship/Widgets/SignInButton.dart';
+import 'package:axie_scholarship/enums/pageType.dart';
+import 'package:axie_scholarship/models/pageSwitcher.dart';
 import 'package:flutter/material.dart';
 import 'package:axie_scholarship/models/screenSize.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/parser.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
@@ -69,6 +69,9 @@ class _SignInPageState extends State<SignInPage>
                   buttonText: "Sign Up with Email ID",
                   onPressed: () {
                     //TODO : Redirect to the page of Sign in with email and password
+                    context.read<PageSwitcher>().changePage(
+                          newPage: PageType.SignUpEmailPage,
+                        );
                   },
                   textColor: Colors.white,
                   backgroundColor: Color(0xff514B4A)),

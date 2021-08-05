@@ -7,12 +7,14 @@ class SignInButton extends StatefulWidget {
   final String buttonText;
   final VoidCallback onPressed;
   final Color textColor, backgroundColor;
+  final double? width;
   const SignInButton({
     Key? key,
     required this.buttonText,
     required this.onPressed,
     required this.textColor,
     required this.backgroundColor,
+    this.width,
   }) : super(key: key);
 
   @override
@@ -31,7 +33,7 @@ class _SignInButtonState extends State<SignInButton> {
       ),
       child: Container(
         alignment: Alignment.center,
-        width: context.read<ScreenSize>().width * .50,
+        width: widget.width ?? (context.read<ScreenSize>().width * .50),
         height: context.read<ScreenSize>().height * .04,
         child: Text(
           this.widget.buttonText,
@@ -43,7 +45,10 @@ class _SignInButtonState extends State<SignInButton> {
           ),
         ),
       ),
-      onPressed: () => this.widget.onPressed,
+      onPressed: () {
+        print('the button is clicked');
+        this.widget.onPressed();
+      },
     );
   }
 }
