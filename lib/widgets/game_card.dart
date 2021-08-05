@@ -11,8 +11,10 @@ class GameCard extends StatefulWidget {
 class _GameCardState extends State<GameCard> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
       child: ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemCount: games.length,
         itemBuilder: (BuildContext context, int index) {
           final Game game = games[index];
@@ -67,7 +69,7 @@ class _GameCardState extends State<GameCard> {
                                   ),
                                 ),
                                 Container(
-                                  height: 30.0,
+                                  height: 35.0,
                                   decoration: BoxDecoration(
                                     color: Theme.of(context).buttonColor,
                                     borderRadius: BorderRadius.circular(15.0),
@@ -78,7 +80,14 @@ class _GameCardState extends State<GameCard> {
                                           MaterialStateProperty.all<Color>(Colors.white),
                                     ),
                                     onPressed: () {},
-                                    child: Text('Play'),
+                                    child: Text(
+                                      'Play',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],

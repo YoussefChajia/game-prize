@@ -14,41 +14,43 @@ class _GameListState extends State<GameList> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 35.0),
-                child: Text(
-                  'Hello,\nYoussef Chajia',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20.0),
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: InfoCard(
-                        text: 'Score :',
-                      ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 35.0),
+                  child: Text(
+                    'Hello,\nYoussef Chajia',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Expanded(
-                    child: InfoCard(text: 'Balance : '),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10.0),
-              GameCard(),
-            ],
+                ),
+                SizedBox(height: 20.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: InfoCard(
+                          text: 'Score :',
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: InfoCard(text: 'Balance : '),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10.0),
+                GameCard(),
+              ],
+            ),
           ),
         ),
       ),
