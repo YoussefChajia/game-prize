@@ -1,5 +1,9 @@
 import 'package:axie_scholarship/Services/Auth.dart';
+import 'package:axie_scholarship/Widgets/SignInButton.dart';
 import 'package:flutter/material.dart';
+import 'package:axie_scholarship/models/screenSize.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/parser.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +16,6 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage>
     with SingleTickerProviderStateMixin {
-  double? screenWidth, screenHeight;
   @override
   void initState() {
     super.initState();
@@ -25,52 +28,75 @@ class _SignInPageState extends State<SignInPage>
 
   @override
   Widget build(BuildContext context) {
-    if (this.screenWidth == null) {
-      this.screenWidth = MediaQuery.of(context).size.width;
-      this.screenHeight = MediaQuery.of(context).size.height;
-      setState(() {});
-    }
-    return Center(
-      child: Column(
-        children: [
-          MaterialButton(
-            height: (screenHeight ?? 200) * .02,
-            minWidth: (screenWidth ?? 200) * .01,
-            color: Color(0xff536DFE),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: Container(
-              width: (screenWidth ?? 200) * .36,
-              height: (screenHeight ?? 200) * .04,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FaIcon(
-                    FontAwesomeIcons.google,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    "Sing in with google",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+    return Stack(
+      children: [
+        Expanded(
+          child: Container(
+            color: Color(0xff212121),
+          ),
+        ),
+        Positioned(
+          child: SvgPicture.asset(
+            "assets/Vectors/rightTail.svg",
+            width: (context.read<ScreenSize>().width) * .2176,
+            height: ((context.read<ScreenSize>().width) * .2176) * 1.572,
+          ),
+          top: 0.0,
+          right: -(context.read<ScreenSize>().width) * .17,
+        ),
+        Positioned(
+          child: SvgPicture.asset(
+            "assets/Vectors/leftTail.svg",
+            width: context.read<ScreenSize>().width * .3,
+            height: context.read<ScreenSize>().width * .6968,
+          ),
+          top: -context.read<ScreenSize>().width * .6968 * .517,
+          left: -(context.read<ScreenSize>().width) * .22,
+        ),
+        Positioned(
+          child: SvgPicture.asset(
+            "assets/Vectors/gifts.svg",
+            width: context.read<ScreenSize>().width * 0.95,
+          ),
+          bottom: 0.0,
+          right: context.read<ScreenSize>().width * -0.053,
+        ),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SignInButton(
+                  buttonText: "Sign Up with Email ID",
+                  onPressed: () {
+                    //TODO : Redirect to the page of Sign in with email and password
+                  },
+                  textColor: Colors.white,
+                  backgroundColor: Color(0xff514B4A)),
+              SizedBox(
+                height: context.read<ScreenSize>().height * .02,
               ),
-            ),
-            onPressed: () async {
-              print("the sign in button is clicked");
-              await context.read<AuthService>().signInWithGoogle();
-            },
-          )
-        ],
-      ),
+              SignInButton(
+                buttonText: "Sign Up with Google",
+                onPressed: () async {
+                  print("the sign in button is clicked");
+                  await context.read<AuthService>().signInWithGoogle();
+                },
+                textColor: Colors.white,
+                backgroundColor: Color(0xff536DFE),
+              ),
+              SizedBox(
+                height: context.read<ScreenSize>().height * .02,
+              ),
+              SignInButton(
+                buttonText: "Continue as a guest",
+                onPressed: () {},
+                backgroundColor: Color(0xff514B4A),
+                textColor: Colors.white,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
