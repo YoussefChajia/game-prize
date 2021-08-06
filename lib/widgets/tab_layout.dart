@@ -1,4 +1,6 @@
 import 'package:axie_scholarship/screens/game_list_screen.dart';
+import 'package:axie_scholarship/screens/leaderboard_screen.dart';
+import 'package:axie_scholarship/screens/profile_screen.dart';
 import 'package:axie_scholarship/tools/screen_size.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,13 +15,13 @@ class TabLayout extends StatelessWidget {
       child: Scaffold(
         body: TabBarView(
           children: [
-            Container(color: Colors.blueGrey),
-            GameList(),
-            Container(color: Colors.blueAccent),
+            LeaderboardPage(),
+            GameListPage(),
+            ProfilePage(),
           ],
         ),
         bottomNavigationBar: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.0),
+          padding: EdgeInsets.symmetric(horizontal: context.read<ScreenSize>().width * 0.085),
           child: TabBar(
             tabs: [
               NavTab(icon: Icons.star_border_outlined),

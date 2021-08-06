@@ -3,14 +3,14 @@ import 'package:axie_scholarship/widgets/game_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class GameList extends StatefulWidget {
-  const GameList({Key? key}) : super(key: key);
+class GameListPage extends StatefulWidget {
+  const GameListPage({Key? key}) : super(key: key);
 
   @override
-  _GameListState createState() => _GameListState();
+  _GameListPageState createState() => _GameListPageState();
 }
 
-class _GameListState extends State<GameList> {
+class _GameListPageState extends State<GameListPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
