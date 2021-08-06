@@ -1,5 +1,7 @@
+import 'package:axie_scholarship/tools/screen_size.dart';
 import 'package:axie_scholarship/widgets/game_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class GameList extends StatefulWidget {
   const GameList({Key? key}) : super(key: key);
@@ -16,27 +18,27 @@ class _GameListState extends State<GameList> {
         backgroundColor: Theme.of(context).backgroundColor,
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: context.read<ScreenSize>().width * 0.055),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 35.0),
+                  padding: EdgeInsets.only(top: context.read<ScreenSize>().height * 0.05),
                   child: Text(
                     'Hello,\nYoussef Chajia',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
+                      fontSize: context.read<ScreenSize>().width * 0.07,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: context.read<ScreenSize>().height * 0.025),
                 Row(
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.only(right: 10.0),
+                        padding: EdgeInsets.only(right: context.read<ScreenSize>().width * 0.03),
                         child: InfoCard(
                           text: 'Score :',
                         ),
@@ -47,7 +49,7 @@ class _GameListState extends State<GameList> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: context.read<ScreenSize>().height * 0.015),
                 GameCard(),
               ],
             ),
@@ -66,14 +68,16 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40.0,
+      height: context.read<ScreenSize>().height * 0.05,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 13.0),
+        padding: EdgeInsets.symmetric(
+            vertical: context.read<ScreenSize>().height * 0.013,
+            horizontal: context.read<ScreenSize>().width * 0.035),
         child: Text(
           text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 15.0,
+            fontSize: context.read<ScreenSize>().width * 0.044,
             fontWeight: FontWeight.bold,
           ),
         ),

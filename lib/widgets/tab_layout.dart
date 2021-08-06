@@ -1,5 +1,7 @@
 import 'package:axie_scholarship/screens/game_list_screen.dart';
+import 'package:axie_scholarship/tools/screen_size.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TabLayout extends StatelessWidget {
   const TabLayout({Key? key}) : super(key: key);
@@ -42,11 +44,11 @@ class NavTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
+      padding: EdgeInsets.symmetric(vertical: context.read<ScreenSize>().height * 0.025),
       child: Tab(
         icon: Icon(
           icon,
-          size: 25.0,
+          size: context.read<ScreenSize>().width * 0.07,
         ),
       ),
     );

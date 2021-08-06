@@ -1,5 +1,7 @@
 import 'package:axie_scholarship/models/game.dart';
+import 'package:axie_scholarship/tools/screen_size.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class GameCard extends StatefulWidget {
   const GameCard({Key? key}) : super(key: key);
@@ -19,9 +21,9 @@ class _GameCardState extends State<GameCard> {
         itemBuilder: (BuildContext context, int index) {
           final Game game = games[index];
           return Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
+            padding: EdgeInsets.symmetric(vertical: context.read<ScreenSize>().height * 0.0128),
             child: Container(
-              height: 100.0,
+              height: context.read<ScreenSize>().height * 0.128,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: Theme.of(context).cardColor,
@@ -31,7 +33,7 @@ class _GameCardState extends State<GameCard> {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(context.read<ScreenSize>().height * 0.0128),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
@@ -43,7 +45,9 @@ class _GameCardState extends State<GameCard> {
                   Expanded(
                     flex: 2,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                      padding: EdgeInsets.symmetric(
+                          vertical: context.read<ScreenSize>().height * 0.019,
+                          horizontal: context.read<ScreenSize>().width * 0.03),
                       child: Container(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,7 +57,7 @@ class _GameCardState extends State<GameCard> {
                               game.title,
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 20.0,
+                                fontSize: context.read<ScreenSize>().width * 0.055,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -64,12 +68,12 @@ class _GameCardState extends State<GameCard> {
                                   'Required : ${game.price}',
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 15.0,
+                                    fontSize: context.read<ScreenSize>().width * 0.04,
                                     fontWeight: FontWeight.normal,
                                   ),
                                 ),
                                 Container(
-                                  height: 35.0,
+                                  height: context.read<ScreenSize>().height * 0.045,
                                   decoration: BoxDecoration(
                                     color: Theme.of(context).buttonColor,
                                     borderRadius: BorderRadius.circular(15.0),
@@ -84,7 +88,7 @@ class _GameCardState extends State<GameCard> {
                                       'Play',
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 15.0,
+                                        fontSize: context.read<ScreenSize>().width * 0.042,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
