@@ -64,18 +64,25 @@ class _SignInEmailPageState extends State<SignInEmailPage> {
                         fieldType: TextFieldType.Password,
                         textController: passwordController),
                     SizedBox(
-                      height: context.read<ScreenSize>().width * .01,
+                      height: context.read<ScreenSize>().width *
+                          (this.errorSignIn ? .01 : 0),
                     ),
-                    Center(
-                      child: Text(
-                        "Email or Password Incorrect",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.white,
-                          fontSize: context.read<ScreenSize>().width * .03,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ),
+                    this.errorSignIn
+                        ? Center(
+                            child: Text(
+                              "Email or Password Incorrect",
+                              style: GoogleFonts.montserrat(
+                                color: Colors.white,
+                                fontSize:
+                                    context.read<ScreenSize>().width * .03,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          )
+                        : SizedBox(
+                            height: 0,
+                            width: 0,
+                          ),
                     SizedBox(
                       height: context.read<ScreenSize>().height * .05,
                     ),
