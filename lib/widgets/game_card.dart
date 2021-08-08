@@ -35,9 +35,15 @@ class _GameCardState extends State<GameCard> {
                     child: Padding(
                       padding: EdgeInsets.all(context.read<ScreenSize>().height * 0.0128),
                       child: Container(
+                        height: context.read<ScreenSize>().height * 0.15,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Colors.black,
+                        ),
+                        child: Icon(
+                          Icons.image_outlined,
+                          color: Theme.of(context).cardColor,
+                          size: context.read<ScreenSize>().width * 0.1,
                         ),
                       ),
                     ),

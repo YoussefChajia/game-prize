@@ -44,6 +44,11 @@ class _UserCardState extends State<UserCard> {
                               borderRadius: BorderRadius.circular(50.0),
                               color: Colors.black,
                             ),
+                            child: Icon(
+                              Icons.person_outline,
+                              color: Theme.of(context).cardColor,
+                              size: context.read<ScreenSize>().width * 0.08,
+                            ),
                           ),
                           Padding(
                             padding:
