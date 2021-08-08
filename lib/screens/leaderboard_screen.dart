@@ -60,8 +60,10 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
                             children: [
                               Text(
                                 '1450',
-                                style:
-                                    TextStyle(fontSize: context.read<ScreenSize>().width * 0.045),
+                                style: TextStyle(
+                                  fontSize: context.read<ScreenSize>().width * 0.045,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               SizedBox(
                                 width: context.read<ScreenSize>().width * 0.01,

@@ -53,12 +53,15 @@ class _GameCardState extends State<GameCard> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              game.title,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: context.read<ScreenSize>().width * 0.055,
-                                fontWeight: FontWeight.bold,
+                            Flexible(
+                              child: Text(
+                                game.title,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: context.read<ScreenSize>().width * 0.055,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                             Row(

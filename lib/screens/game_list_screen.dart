@@ -40,7 +40,7 @@ class _GameListPageState extends State<GameListPage> {
                       child: Padding(
                         padding: EdgeInsets.only(right: context.read<ScreenSize>().width * 0.03),
                         child: InfoCard(
-                          text: 'Score :',
+                          text: 'Score : ',
                         ),
                       ),
                     ),
@@ -80,6 +80,7 @@ class InfoCard extends StatelessWidget {
             fontSize: context.read<ScreenSize>().width * 0.044,
             fontWeight: FontWeight.bold,
           ),
+          overflow: TextOverflow.ellipsis,
         ),
       ),
       decoration: BoxDecoration(
