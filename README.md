@@ -1,6 +1,6 @@
 App Design of the app is made by Youssef Chajia using Adobe XD
 
-Here is a video of app in action :
+Here is a video of my part in the app (Youssef Chajia) :
 
 https://user-images.githubusercontent.com/76397862/128686091-515ebe40-4075-4d58-b231-11b66ef5e2c6.mp4
 
