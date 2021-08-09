@@ -1,8 +1,12 @@
 App Design of the app is made by Youssef Chajia using Adobe XD
 
-Here is the app design : | Here is a video of app in action :
+Here is a video of app in action :
 
-![Sign In](https://user-images.githubusercontent.com/76397862/128643444-47b24ee0-95a0-4926-be2e-bc3a35197506.png) | https://user-images.githubusercontent.com/76397862/128686091-515ebe40-4075-4d58-b231-11b66ef5e2c6.mp4
+https://user-images.githubusercontent.com/76397862/128686091-515ebe40-4075-4d58-b231-11b66ef5e2c6.mp4
+
+Here is the app design :
+
+![Sign In](https://user-images.githubusercontent.com/76397862/128643444-47b24ee0-95a0-4926-be2e-bc3a35197506.png) 
 
 ![Sign In with Email ID](https://user-images.githubusercontent.com/76397862/128643443-8649a812-a18a-4b71-bf8b-c149891ce97a.png)
 
